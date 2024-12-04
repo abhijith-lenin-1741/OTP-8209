@@ -8,8 +8,8 @@ const Login = () => {
     password: '',
   })
   const [alert, setAlert] = useState(false)
+  const [message, setMessage] = useState('')
   const login = async () => {
-   
     try {
       const req = await fetch('api/users/login', {
         method: 'POST',
@@ -30,16 +30,21 @@ const Login = () => {
     }
   }
   const onFinish = async (values) => {
-    
     const response = await login()
     console.log(response)
-    if(response?.message){
-        setAlert(true)
-        setTimeout(() => {
-            setAlert(false)
-        },2000)
+    if (response?.message) {
+      setMessage('Login Successfully')
+      setAlert(true)
+      setTimeout(() => {
+        setAlert(false)
+      }, 2000)
+    } else {
+      setMessage('Login Failed')
+      setAlert(true)
+      setTimeout(() => {
+        setAlert(false)
+      }, 2000)
     }
-    
   }
   const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo)
@@ -47,7 +52,7 @@ const Login = () => {
 
   return (
     <div className="login-form">
-      {alert && <Alert message="Login SuccessFully" type="success" />}
+      {alert && <Alert message={message} type="success" />}
       <Form
         name="basic"
         labelCol={{
