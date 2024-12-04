@@ -1,0 +1,36 @@
+body {
+  background: #000;
+  color: #fff;
+}
+.label label {
+  color: #fff !important;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  align-items: center;
+}
+h1 {
+  text-align: center;
+  color: #fff;
+}
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.login-form form {
+  max-width: none !important;
+  /* width: 700px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-form form input {
+    width: 500px;
+}
